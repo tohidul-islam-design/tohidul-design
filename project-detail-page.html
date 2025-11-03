@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artanveer-Inspired Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom styles and Inter font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-dark': '#111827', // dark gray
+                        'secondary-dark': '#1F2937', // slightly lighter dark gray
+                        'accent': '#9333ea', // deep purple accent
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles to match the dark aesthetic */
+        body {
+            background-color: #0d0e13; /* Very dark background */
+            color: #f3f4f6; /* Light gray text */
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
+        /* Custom underline effect for navigation */
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: currentColor; /* Matches text color */
+            transition: width 0.3s ease-out;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link.active {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Responsive typography for the hero text */
+        .hero-text {
+            font-size: 3rem; /* Default for mobile */
+            line-height: 1.1;
+        }
+        @media (min-width: 640px) {
+            .hero-text {
+                font-size: 4.5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .hero-text {
+                font-size: 7rem;
+            }
+        }
+        .work-card-text {
+            transition: transform 0.3s ease-in-out;
+        }
+        .work-card:hover .work-card-text {
+            transform: translateX(10px);
+        }
+        
+        /* Ensure cursor pointer on clickable work items */
+        .work-item-link {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="sticky top-0 z-10 bg-[#0d0e13] border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo/Home Link -->
+            <a href="#home" data-page="home" class="text-xl font-extrabold text-white tracking-widest nav-link active" id="logo-link">
+                STUDIO A.
+            </a>
+            
+            <!-- Navigation Links -->
+            <nav class="space-x-8 text-gray-400 text-lg hidden sm:flex">
+                <a href="#work" data-page="work" class="nav-link">Work</a>
+                <a href="#studio" data-page="studio" class="nav-link">Studio</a>
+                <a href="#contact" data-page="contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button (Placeholder) -->
+            <button class="sm:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24">
+
+
+        <!-- ===== PROJECT DETAIL PAGE (New) ===== -->
+        <section id="project-detail-page" data-page-content="project-detail" class="page-content">
+            <div class="py-16 md:py-24">
+                <span class="text-sm text-gray-500 uppercase tracking-widest">Case Study • 2024</span>
+                <h1 class="text-5xl md:text-8xl font-black text-white mt-4 mb-8 leading-tight">
+                    FutureFound: Rebranding a Tech Unicorn
+                </h1>
+                <p class="text-xl text-gray-400 max-w-4xl">
+                    A comprehensive overhaul of brand identity and digital strategy, transforming a local player into a globally recognized leader in sustainable technology.
+                </p>
+            </div>
+
+            <!-- Hero Image / Summary -->
+            <div class="aspect-video bg-gray-700 rounded-xl overflow-hidden mb-16">
+                <img src="https://placehold.co/1200x675/1f2937/d1d5db?text=Project+Mockup+Hero" alt="FutureFound project hero image" class="w-full h-full object-cover" />
+            </div>
+
+            <!-- Key Info Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-b border-gray-800 py-8 mb-16">
+                <div>
+                    <p class="text-sm text-gray-500 uppercase mb-1">Client</p>
+                    <p class="text-white font-semibold">FutureFound Inc.</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 uppercase mb-1">Services</p>
+                    <p class="text-white font-semibold">Branding, Web Design, Strategy</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 uppercase mb-1">Duration</p>
+                    <p class="text-white font-semibold">6 Months</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 uppercase mb-1">Live Site</p>
+                    <a href="#" class="text-accent font-semibold hover:underline">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Detail Content -->
+            <div class="max-w-4xl mx-auto space-y-12">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-4">The Challenge</h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        FutureFound had outgrown its original identity. The brand felt dated and failed to reflect their innovative technology and their commitment to environmental impact. The challenge was to create a brand system that was both sophisticated and scalable for global expansion.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-4">Our Solution: Clarity & Impact</h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        We developed a new visual language centered on minimalist precision and vibrant, data-driven visualizations. This involved a new logo, color palette, and a complete design system for their web presence. The goal was to establish trust and convey a sense of future-forward momentum.
+                    </p>
+                    <div class="mt-8 aspect-video bg-gray-800 rounded-lg">
+                        <img src="https://placehold.co/1200x675/1f2937/9333ea?text=Visual+Identity+Mockup" alt="Visual identity example" class="w-full h-full object-cover opacity-80" />
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-4">Results</h2>
+                    <ul class="text-gray-400 space-y-3 list-disc list-inside">
+                        <li>**+45%** increase in qualified leads in the first quarter post-launch.</li>
+                        <li>**8.5/10** average score in user sentiment surveys regarding the new website.</li>
+                        <li>Awarded "Best B2B Rebrand" by Digital Design Magazine.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center text-gray-500">
+            <p class="text-sm">&copy; 2024 Studio A. All Rights Reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#work" data-page="work" class="text-sm hover:text-white nav-link">Work</a>
+                <a href="#studio" data-page="studio" class="text-sm hover:text-white nav-link">Studio</a>
+                <a href="#contact" data-page="contact" class="text-sm hover:text-white nav-link">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+    </script>
+</body>
+</html>
